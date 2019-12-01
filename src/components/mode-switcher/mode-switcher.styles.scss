@@ -1,27 +1,33 @@
 
+@import '../../styles/abstracts/functions';
+
 .mode-switcher {
-  $line-thickness: 2.1px;
-
-  overflow: hidden;
+  position: relative;
   display: flex;
-  border: $line-thickness solid var(--text-clr);
-  border-radius: 0.3em;
+  
+  &::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: v(switcher-bdrs);
+    border: v(switcher-line-thickness) solid v(text-clr);
+  }
 
-  &__mode {
-    text-transform: lowercase;
-    font-variant: small-caps;
-    font-size: 1.5em;
-    line-height: 1em;
-    padding: 0.2em 1em 0.4em;
-
-    &.active {
-      background: var(--second-brand-clr);
+  & > * {
+    &:first-child {
+      border-radius: v(switcher-bdrs) 0 0 v(switcher-bdrs);
+    }
+    &:last-child {
+      border-radius: 0 v(switcher-bdrs) v(switcher-bdrs) 0;
     }
   }
 
   &__separator {
-    width: $line-thickness;
-    background: var(--text-clr);
-    transform: scale(1.05);
+    width: v(switcher-line-thickness);
+    background: v(text-clr);
   }
 }

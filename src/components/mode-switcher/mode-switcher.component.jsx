@@ -5,18 +5,20 @@ import { selectModes, selectCurModeId } from '../../redux/mode/mode.selectors';
 
 import './mode-switcher.styles.scss';
 
+import ModeItem from '../mode-item';
+
 const ModeSwitcher = ({ modes, curModeId }) => (
   <div className="mode-switcher">
     {modes
-      .map(mode => (
-        <div
-          key={mode.id}
-          className={`mode-switcher__mode ${curModeId === mode.id ? 'active' : ''}`}
-        >
-          {mode.text}
-        </div>
-      ))
-      .reduce((prev, curr) => [prev, <div className="mode-switcher__separator"></div>, curr])}
+      .map(mode => {
+        const isActive = curModeId === mode.id;
+        return <ModeItem key={mode.id} mode={mode} active={isActive} />;
+      })
+      .reduce((prev, curr, idx) => [
+        prev,
+        <div key={-idx} className="mode-switcher__separator"></div>,
+        curr
+      ])}
   </div>
 );
 

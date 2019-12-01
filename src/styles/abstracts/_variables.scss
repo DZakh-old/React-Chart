@@ -24,6 +24,10 @@ $v-globals: (
   /// Container's minimum width
   min-width: 320px,
   max-width: 1180px,
-  min-height: 750px
+  min-height: 750px,
 
+  /// Switcher params
+  switcher-line-thickness: 2.25px,
+  switcher-bdrs: 5px
+  
 ) !default;
