@@ -1,0 +1,9 @@
+@import '../../styles/abstracts/mixins';
+
+.header {
+  grid-area: header;
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0;
+}

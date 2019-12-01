@@ -1,0 +1,9 @@
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    "header"
+    "page"
+    "footer";
+  min-height: 100vh;
+}

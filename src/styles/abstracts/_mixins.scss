@@ -1,3 +1,5 @@
+@import './media-queries';
+
 /// Make a context based selector a little more friendly
 /// @author Hugo Giraudel
 /// @param {String} $context
@@ -49,13 +51,32 @@
   height: calc(var(--vh, 1vh) * #{$height});
 }
 
+// TODO: refactor
+@mixin grid-container() {
+  --container: 90vw;
+
+  display: grid;
+  grid-template-columns: 1fr var(--container) 1fr;
+
+  @each $breakpoint, $value in $breakpoints {
+    @include respond-above($breakpoint) {
+      --container: calc(#{$value} - 40px);
+    }
+  }
+}
+
 @mixin container() {
-  max-width: var(--max-width);
+  --container: 90vw;
+
+  width: var(--container);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 100%;
+
+  @each $breakpoint, $value in $breakpoints {
+    @include respond-above($breakpoint) {
+      --container: calc(#{$value} - 40px);
+    }
+  }
 }
 
 /// Initialize css variables

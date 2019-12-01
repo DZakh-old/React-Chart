@@ -1,0 +1,13 @@
+.app-logo {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    width: 3.5em;
+    height: 3.5em;
+  }
+
+  &__title {
+    margin-left: 0.5em;
+  }
+}
