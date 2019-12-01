@@ -1,0 +1,7 @@
+@import '../../styles/abstracts/mixins';
+
+.home-page {
+  grid-area: page;
+  @include container;
+  @include center;
+}

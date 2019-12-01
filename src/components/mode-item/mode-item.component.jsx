@@ -3,7 +3,7 @@ import { cn } from '@bem-react/classname';
 import { connect } from 'react-redux';
 import { switchMode } from '../../redux/mode/mode.actions';
 
-import './mode-item.scss';
+import './mode-item.styles.scss';
 
 export const cnModeItem = cn('mode-item');
 

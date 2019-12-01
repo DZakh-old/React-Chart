@@ -1,5 +1,5 @@
 import { withBemMod } from '@bem-react/core';
-import { cnModeItem } from '../mode-item';
+import { cnModeItem } from '../mode-item.component';
 
 import './mode-item_active.scss';
 

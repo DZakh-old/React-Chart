@@ -1,16 +1,15 @@
 import React from 'react';
-// import { cn } from '@bem-react/classname';
 
 import './app.styles.scss';
 
-import Header from '../components/header/header.component';
+import HomePage from '../pages/home/home-page.component';
 
-// const cnApp = cn('app');
+import Header from '../components/header/header.component';
 
 const App = () => (
   <div className="app">
     <Header />
-    <main className="app__main">Chart</main>
+    <HomePage />
     <footer className="app__footer">Author</footer>
   </div>
 );
