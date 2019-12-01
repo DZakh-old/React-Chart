@@ -1,0 +1,7 @@
+@import '../abstracts/variables.scss',
+        '../abstracts/functions.scss';
+
+body {
+  color: v(text-clr);
+  font: normal v(base-font-size) v(text-font-stack);
+}

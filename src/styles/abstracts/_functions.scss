@@ -1,0 +1,22 @@
+/// Shortage for var(--...)
+@function v($var, $callback: '_') {
+  @if ($callback != '_') {
+    @return var(--#{$var}, $callback);
+  } @else {
+    @return var(--#{$var});
+  }
+}
+
+/// The same as v function, but needed if you want to get a sass variable
+@function v-get($var, $v-map: '_') {
+  @if $v-map != '_' {
+    @if map-has-key($v-map, $var) {
+      @return map-get($v-map, $var);
+    } 
+    @error 'Local variable #{$var} doesn\'t exist';
+  }
+  @if map-has-key($v-globals, $var) {
+    @return map-get($v-globals, $var);
+  }
+  @error 'Global variable #{$var} doesn\'t exist';
+}
