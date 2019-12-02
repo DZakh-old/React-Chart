@@ -29,8 +29,7 @@ const initialState = {
         lineCap: 'round'
       }
     },
-    type: 'line',
-    width: 700
+    type: 'line'
   },
   rowData
 };

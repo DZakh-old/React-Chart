@@ -1,0 +1,6 @@
+@import '../../styles/abstracts/mixins';
+
+.creator {
+  padding: 0.5em 0.5em 0.2em;
+  @include underline(var(--text-clr));
+}

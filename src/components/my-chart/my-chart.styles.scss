@@ -1,0 +1,14 @@
+@import '../../styles/abstracts/mixins';
+
+.my-chart {
+
+  &__title {
+    text-align: center;
+    font-weight: normal;
+    padding: 0.3em;
+  }
+
+  &__chart {
+    @include container;
+  }
+}

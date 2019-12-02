@@ -1,3 +1,4 @@
+@import '../../styles/abstracts/media-queries';
 @import '../../styles/abstracts/mixins';
 
 .header {
@@ -7,4 +8,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 1em 0;
+
+  @include respond-below(sm) {
+    flex-direction: column;
+
+    & > *:last-child {
+      margin-top: 2em;
+    }
+  }
 }

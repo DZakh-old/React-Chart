@@ -8,14 +8,18 @@ import { selectCurMode } from '../../redux/mode/mode.selectors';
 
 import { getChartDataByMode } from '../../utils/utils.functions';
 
-import './random-chart.styles.scss';
+import './my-chart.styles.scss';
 
-const RandomChart = ({ defaultChartProps, rowData, curMode }) => {
+const MyChart = ({ defaultChartProps, rowData, curMode }) => {
   const chartData = getChartDataByMode(rowData, curMode);
   return (
-    <div className="random-chart">
-      <h2 className="random-chart__title">Chart with random numbers by hour</h2>
-      <Chart series={[{ data: chartData || [] }]} {...defaultChartProps} />
+    <div className="my-chart">
+      <h2 className="my-chart__title">Chart with random numbers by hour</h2>
+      <Chart
+        className="my-chart__chart"
+        series={[{ data: chartData || [] }]}
+        {...defaultChartProps}
+      />
     </div>
   );
 };
@@ -26,4 +30,4 @@ const mapStateToProps = createStructuredSelector({
   curMode: selectCurMode
 });
 
-export default connect(mapStateToProps)(RandomChart);
+export default connect(mapStateToProps)(MyChart);
