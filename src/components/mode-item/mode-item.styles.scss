@@ -5,13 +5,17 @@
   line-height: 1em;
   padding: 0.2em 1em 0.4em;
   border: none;
-  transition: all 0.1s;
   background: var(--bg-clr);
+  transition: all 0.15s;
 
   &:hover,
   &:focus {
     z-index: 2;
     border-radius: var(--switcher-bdrs);
     box-shadow: 0 0 0 calc(var(--switcher-line-thickness) * 1.75) var(--text-clr);
+  }
+
+  &:active {
+    transform: scale(1.03);
   }
 }
