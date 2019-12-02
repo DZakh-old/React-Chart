@@ -5,16 +5,17 @@ import { createStructuredSelector } from 'reselect';
 
 import { selectChartProps } from '../../redux/chart/chart.selectors';
 
-import './home-page.styles.scss';
+import './random-chart.styles.scss';
 
-const HomePage = ({ chartProps }) => (
-  <main className="home-page">
+const RandomChart = ({ chartProps }) => (
+  <div className="random-chart">
+    <h2>Chart with random numbers by hour</h2>
     <Chart {...chartProps} />
-  </main>
+  </div>
 );
 
 const mapStateToProps = createStructuredSelector({
   chartProps: selectChartProps
 });
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps)(RandomChart);

@@ -3,11 +3,12 @@ const fs = require('fs');
 const HOURS_IN_DAY = 24;
 const DAYS_IN_MONTH = 30;
 const MILLISECONDS_IN_HOUR = 3.6e6;
+const STARTING_DATE = new Date();
 
 const getNewDataElement = restNumOfElements => {
-  const date = new Date() - MILLISECONDS_IN_HOUR * restNumOfElements;
+  const date = STARTING_DATE - MILLISECONDS_IN_HOUR * restNumOfElements;
   return {
-    id: date,
+    id: ~~(date / 10 ** 5),
     date: date,
     value: ~~(Math.random(10) * 100)
   };

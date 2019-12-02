@@ -2,14 +2,14 @@ import React from 'react';
 
 import './app.styles.scss';
 
-import HomePage from '../pages/home/home-page.component';
+import MainPage from '../pages/main/main-page.component';
 
 import Header from '../components/header/header.component';
 
 const App = () => (
   <div className="app">
     <Header />
-    <HomePage />
+    <MainPage />
     <footer className="app__footer">Author</footer>
   </div>
 );

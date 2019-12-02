@@ -1,37 +1,44 @@
+import rowData from './chart.data.json';
+
+const getFormattedDate = (date, options) => {
+  const lang = 'en-US';
+  return new Intl.DateTimeFormat(lang, options).format(date);
+};
+
+const makeChart = data => {
+  const options = {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  };
+  const formattedDate = getFormattedDate(new Date(), options);
+  console.log(formattedDate);
+  // return data.map(item => [getFormattedDate(item.date, options), item.value]).slice(0, 14);
+  return data.map(item => ({ x: getFormattedDate(item.date, options), y: item.value })).slice(-24);
+};
+
 const initialState = {
   chartProps: {
     options: {
       chart: {
+        toolbar: {
+          show: false
+        },
         zoom: {
           enabled: false
         }
       },
-      dataLabels: {
+      tooltip: {
         enabled: false
-      },
-      stroke: {
-        curve: 'straight'
-      },
-      title: {
-        text: 'Product Trends by Month',
-        align: 'left'
-      },
-      grid: {
-        row: {
-          colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-          opacity: 0.5
-        }
-      },
-      xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']
       }
     },
     series: [
       {
-        name: 'Desktops',
-        data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+        data: makeChart(rowData)
       }
-    ]
+    ],
+    type: 'line',
+    width: 700
   }
 };
 
