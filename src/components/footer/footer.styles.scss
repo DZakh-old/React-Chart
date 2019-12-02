@@ -1,0 +1,9 @@
+@import '../../styles/abstracts/mixins';
+
+.footer {
+  grid-area: footer;
+  @include container;
+  @include center;
+  display: flex;
+  padding: 1em 0;
+}

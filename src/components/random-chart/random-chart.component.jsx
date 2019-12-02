@@ -3,19 +3,22 @@ import Chart from 'react-apexcharts';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { selectChartProps } from '../../redux/chart/chart.selectors';
+import { selectDefaultChartProps } from '../../redux/chart/chart.selectors';
 
 import './random-chart.styles.scss';
 
-const RandomChart = ({ chartProps }) => (
-  <div className="random-chart">
-    <h2>Chart with random numbers by hour</h2>
-    <Chart {...chartProps} />
-  </div>
-);
+const RandomChart = ({ defaultChartProps }) => {
+  const series = [{ data: [] }];
+  return (
+    <div className="random-chart">
+      <h2 className="random-chart__title">Chart with random numbers by hour</h2>
+      <Chart series={series} {...defaultChartProps} />
+    </div>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
-  chartProps: selectChartProps
+  defaultChartProps: selectDefaultChartProps
 });
 
 export default connect(mapStateToProps)(RandomChart);
